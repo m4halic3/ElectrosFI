@@ -1,0 +1,20 @@
+# Node / Vue
+node_modules/
+dist/
+.env
+.env.local
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env/
+
+# Docker
+*.log
+*.pid
+*.sock
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/3d-ngsolve-simulation" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/electrosfi-3d-interface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/electrosfi-kong-setup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/gmsh-integration" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nlopt_integration" vcs="Git" />
+  </component>
+</project>
