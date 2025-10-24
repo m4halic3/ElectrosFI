@@ -1,0 +1,455 @@
+/* ======================================================================= 
+  
+Autor: @paulhenrique
+
+  1. Estilos que abrangem todas as páginas do sistema
+  2. Estilos para a página inicial (landing page do sistema)
+  3. Estilos para o dashboard
+  4. Estilo da Navbar
+  5. Estilo do Dropdown
+  6. Estilos para o drawing
+  7. Estilo do ColorPicker
+  
+
+================================================================================*/
+
+// // 1. Estilos que abrangem todas as páginas do sistema
+// // body{
+// //   display: none !important;
+// // }
+// * {
+//   &::-webkit-scrollbar-thumb {
+//     background: #dadce0;
+//     background-clip: padding-box;
+//     border: 4px solid transparent;
+//     -webkit-border-radius: 8px;
+//     border-radius: 8px;
+//     -webkit-box-shadow: none;
+//     box-shadow: none;
+//     min-height: 50px;
+//   }
+//   &::-webkit-scrollbar-track {
+//     background: none;
+//     border: none;
+//   }
+//   &::-webkit-scrollbar {
+//     width: 14px;
+//   }
+// }
+$primary-color-text: #224167;
+// $primary-color-text: #60a7ff;
+$shadow-color: #96969682;
+
+// // 2. Estilos para a página inicial (landing page do sistema)
+// .home {
+//   background-image: url(/img/illustrations/blank.svg);
+//   background-repeat: no-repeat;
+//   background-position: right bottom;
+//   height: 100vh;
+//   background-size: 41vw;
+//   padding-top: 5rem;
+// }
+// .card {
+//   border-radius: 10px;
+// }
+
+// .btn {
+//   border-radius: 5px;
+//   text-transform: none;
+//   letter-spacing: 0px;
+// }
+// .btn,
+// .card {
+//   box-shadow: none;
+//   &:hover {
+//     //box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+//     box-shadow: 0px 6px 34px -12px rgb(0, 0, 0);
+//   }
+// }
+
+// // 3. Estilos para o dashboard
+// .Dashboard {
+//   height: 100%;
+//   width: 100%;
+//   color: #696969;
+//   .SideNav {
+//     height: 100%;
+//     position: fixed;
+//     margin-left: 0;
+//     left: 0;
+//     top: 0;
+//     text-align: center;
+//     box-shadow: -5px 0px 11px 1px $shadow-color;
+//     color: $primary-color-text;
+//     width: 9%;
+//     .icon {
+//       font-size: 2rem;
+//     }
+//     p {
+//       font-size: 0.8rem;
+//     }
+//     ul {
+//       height: 100%;
+//       margin-top: 0 !important;
+//       li {
+//         height: 25%;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         flex-wrap: wrap;
+//         padding: 2rem;
+//         transition: .25s all ease;
+//         .icon {
+//           display: block;
+//         }
+//         &.active,
+//         &:hover {
+//           background: $primary-color-text;
+//           color: white;
+//           cursor: pointer;
+//         }
+//       }
+//     }
+//   }
+//   .MinhasSimulacoes {
+//     .CardSimulacao {
+//       box-shadow: 0px 0px 9px -1px $shadow-color;
+//       border-radius: 3px;
+//       padding: 1rem;
+//       // color: ;
+//       margin-top: 1rem;
+//     }
+//   }
+//   .MinhasSimulacoes,
+//   .RightContent {
+//     margin-left: 9%;
+//     padding: 2rem;
+//     width: 91%;
+//   }
+
+// }
+// .UserDropdownTrigger {
+//   position: fixed;
+//   display: flex;
+//   align-items: center;
+//   right: 0.5rem;
+//   top: .5rem;
+//   border-radius: 10rem;
+//   padding: 0 1rem;
+//   background: white;
+//   font-size: .9rem;
+//   box-shadow: 0px 2px 9px -5px black;
+//   transition: .25s all ease;
+//   img{
+//     margin-right: .5rem;
+//   }
+//   &:hover{
+//     cursor: pointer;
+//     background: #efefef;
+//   }
+// }
+
+// // 4. Estilo da Navbar
+// nav {
+//   .userImg {
+//     margin-top: 0.5rem;
+//     margin-right: 1rem;
+//   }
+//   height: 48px !important;
+// }
+// // 5. Estilo do Dropdown
+// #dropdown_user {
+//   line-height: 100%;
+//   .block-menu {
+//     a {
+//       color: grey;
+//       letter-spacing: -0.2px;
+//       font-size: 0.8rem;
+//       text-align: center;
+//       margin: auto;
+//       min-height: 100px;
+//       line-height: 1rem;
+//       margin: 0;
+//       padding: 0;
+//       border-radius: 8px;
+//     }
+//   }
+// }
+// .dropdown-content li > a,
+// .dropdown-content li > span {
+//   font-size: 1rem !important;
+// }
+// 6. Estilos para o drawing
+.Drawing {
+  @import "../../assets/sass/materialize";
+  overflow: hidden;
+  height: 100vh;
+  background: #e0e0e0;
+
+  .konvajs-content {
+    // background: white;
+    background: #e0e0e0;
+    // left: 100px;
+    // top: 2rem;
+  }
+
+  .ModalComplete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000096;
+    z-index: 9999;
+
+    .ModalContent {
+      display: block;
+      min-width: 30%;
+      max-width: 40%;
+      padding: 2rem;
+      border-radius: 10px;
+      margin: auto;
+      background: white;
+      margin-top: 5rem;
+      margin-left: auto;
+      margin-right: auto;
+
+      .ModalBody {
+        .btnDrawing {
+          background: #166908;
+          color: white;
+
+          &:hover {
+            background: #104a06;
+          }
+        }
+      }
+    }
+  }
+
+  .btnDrawing {
+    background: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    color: $primary-color-text;
+    margin: 0 !important;
+
+    &:hover {
+      cursor: pointer;
+      background: #e4e4e4;
+    }
+
+    &:active,
+    &:focus {
+      background: #e4e4e4;
+    }
+  }
+
+  .DrawingModal {
+    .DrawingModalContent {
+      background: white;
+      color: black;
+      box-shadow: 0px 10px 25px -16px black;
+      border-radius: 3px;
+      position: fixed;
+      right: 1rem;
+      top: 8rem;
+      text-align: center;
+    }
+
+    .input-field {
+      input {
+        width: 70%;
+        text-align: center;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      // margin: 0 !important;
+      // padding: 0 !important;
+    }
+
+    h1 {
+      font-size: 1rem !important;
+    }
+  }
+
+  // .navDrawing {
+  //   background-color: white !important;
+  //   color: $primary-color-text !important;
+  //   height: 3rem !important;
+  //   border-bottom: 0.5px solid #e4e4e4;
+
+  //   .nav-wrapper {
+  //     height: 100% !important;
+  //     min-height: 100% !important;
+  //     z-index: 999 !important;
+  //   }
+
+  //   ul {
+  //     height: 100% !important;
+
+  //     &.dropdownDrawing {
+  //       font-size: 0.9rem;
+  //       height: inherit;
+  //       position: absolute;
+  //       height: fit-content !important;
+  //       top: 100%;
+  //       box-shadow: 0px 11px 19px -19px black;
+
+  //       .btn {
+  //         color: white !important;
+  //       }
+
+  //       li {
+  //         display: block;
+  //         width: 100%;
+  //         white-space: nowrap;
+  //         padding: 0px 15px;
+  //         margin: 0px !important;
+  //         background: white;
+
+  //         &.disabled {
+  //           background: #e8e8e8 !important;
+  //           cursor: not-allowed !important;
+  //         }
+
+  //         .btn {
+  //           color: white !important;
+  //         }
+
+  //         a,
+  //         router-link {
+  //           display: block;
+  //           white-space: nowrap;
+  //         }
+
+  //         &:hover {
+  //           background: #efefef;
+  //           cursor: pointer;
+  //         }
+  //       }
+  //     }
+
+  //     li {
+  //       height: 100% !important;
+  //       position: relative;
+
+  //       a {
+  //         height: 100% !important;
+  //         color: $primary-color-text !important;
+  //         font-size: 0.9rem;
+  //       }
+  //     }
+  //   }
+
+  //   &.Tools {
+  //     box-shadow: 1px 7px 14px -16px black;
+  //     z-index: 0 !important;
+
+  //     .descriptionList {
+  //       height: 100%;
+  //     }
+
+  //     .toolsList {
+  //       height: 100% !important;
+
+  //       ul {
+  //         padding-left: 13px;
+
+  //         li {
+  //           margin-left: 2px;
+  //           padding: 1rem;
+  //           padding: 0rem;
+  //           height: 60% !important;
+  //           top: 0.6rem;
+  //           padding: 0 9px;
+  //           border-radius: 4px;
+  //           border: solid 1px transparent;
+  //           transition: ease all 0.25s;
+
+  //           &:hover {
+  //             box-shadow: 0px 3px 10px -5px black;
+  //             cursor: pointer;
+  //           }
+
+  //           &.divider {
+  //             width: 0.5px !important;
+  //             padding: 0;
+  //             background: #a2a2a2;
+  //             box-shadow: 0px 0px 0px 0px transparent !important;
+  //             margin: 0px 1rem;
+  //           }
+
+  //           &.toolsInfo {
+  //             border: solid 1px #d6d6d6 !important;
+
+  //             &:hover {
+  //               box-shadow: 0px 0px 0px 0px transparent !important;
+  //             }
+
+  //             p {
+  //               display: inline;
+  //               margin: 0;
+  //               padding: 0;
+  //               position: relative;
+  //               top: -12px;
+  //               font-size: 0.8rem;
+  //             }
+  //           }
+
+  //           i {
+  //             font-size: 0.9rem !important;
+  //             margin-top: 0;
+  //             position: relative;
+  //             top: -12px;
+  //             left: 1px;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  .DrawingLeftSideNav {
+    height: calc(100vh - 48px);
+    top: 48px;
+    border-right: 1px solid #dedede;
+    overflow-y: scroll;
+
+    .collection {
+      border: none !important;
+
+      a {
+        border: none !important;
+        background: transparent !important;
+        color: #969696 !important;
+        border-radius: 8px;
+        margin: 0.3rem;
+        margin-left: 0;
+
+        &.active,
+        &:hover {
+          cursor: pointer;
+          background-color: $secondary-color !important;
+          box-shadow: 0px 15px 19px -16px black;
+          color: white !important;
+        }
+      }
+    }
+
+    // 7. Estilo do ColorPicker
+    .vc-chrome {
+      width: 180px;
+      border-radius: 8px;
+
+      .vc-chrome-body {
+        border-radius: 0 0 8px 8px;
+      }
+
+      .vc-chrome-saturation-wrap {
+        border-radius: 8px 8px 0 0;
+      }
+    }
+  }
+}

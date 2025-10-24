@@ -1,0 +1,25 @@
+version: '3.7'
+
+networks:
+  kong-net:
+    external: true
+
+volumes:
+  simulations:
+    external: true
+
+services:
+  gmsh:
+    container_name: gmsh
+    image: leooluz/gmsh:${VERSION:-latest}
+    build: .
+    restart: always
+    ports:
+      - "6002:6002"
+    environment:
+      - PORT=6002
+    networks:
+      - kong-net
+    volumes:
+      - simulations:/app/storage:rw
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 6002

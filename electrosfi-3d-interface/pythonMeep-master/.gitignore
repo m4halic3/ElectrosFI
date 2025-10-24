@@ -1,0 +1,8 @@
+
+node_modules/
+meep/
+miniconda.sh
+__pycache__
+.vscode/
+storage/
+*.out

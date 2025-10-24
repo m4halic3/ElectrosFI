@@ -1,0 +1,33 @@
+{
+	"id": "teste",
+	"geometrys": [
+		{
+			"shape": "triangle",
+			"material": "magnet",
+			"width": 1,
+			"height": 1,
+			"depth": 1,
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		{
+			"shape": "block",
+			"material": "magnet",
+			"width": 1,
+			"height": 1,
+			"depth": 1,
+			"x": 1,
+			"y": 1,
+			"z": 1
+		},
+		{
+			"shape": "sphere",
+			"material": "magnet",
+			"radius": 0.5,
+			"x": -1,
+			"y": -1,
+			"z": -1
+		}
+	]
+}

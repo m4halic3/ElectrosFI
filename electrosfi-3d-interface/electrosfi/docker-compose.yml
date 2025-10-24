@@ -1,0 +1,15 @@
+version: "3.7"  # optional since v1.27.0
+services:
+  web:
+    image: electrosfi-ui-prod:latest
+    restart: always
+    container_name: electrosfi-ui-prod
+    build: .
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+    volumes:
+      - "./resources/default.conf.template:/etc/nginx/conf.d/default.conf.template"
+      - "./resources/default.conf.template:/etc/nginx/conf.d/default.conf"
+      - "./resources/nginx.conf:/etc/nginx/nginx.conf"

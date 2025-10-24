@@ -1,0 +1,123 @@
+import meep as mp
+import library.materials as materials
+import numpy as np
+import matplotlib.pyplot as plt
+import base64 as b64
+import math as math
+import json
+import io
+import ast
+
+def FieldsWaveguide(data):
+    # CellCordinates = Coordinates["cell"]
+    
+    cell = mp.Vector3(
+                data['coordinates']['x'],
+                data['coordinates']['y'],
+                data['coordinates']['z']
+                    )
+    
+    geometry_content_controll = []
+
+    for content in data['geometries']:
+        position = content["position"]
+        size = content["size"] 
+        typeOfGeometry = content["shape"]
+        materialOfGeometry =  mp.Medium(epsilon=content["epsilon"])
+        
+        if ( typeOfGeometry == "block"):
+            currentGeometryData = mp.Block(
+                            size = mp.Vector3(size[0], size[1], mp.inf),
+                            center=mp.Vector3(position[0], position[1]),
+                            material=mp.Medium(epsilon=content["epsilon"])
+                            )
+        elif (typeOfGeometry == "sphere"):
+            currentGeometryData = mp.Sphere(
+                            center=mp.Vector3(position[0], position[1]),
+                            radius=size[0],
+                            material=mp.Medium(epsilon=content["epsilon"])
+                            )
+        elif (typeOfGeometry == "ellipsoid"):
+              currentGeometryData = mp.Ellipsoid(
+                            size = mp.Vector3(size[0], size[1], mp.inf),
+                            center=mp.Vector3(position[0], position[1]),
+                            material=materialOfGeometry
+                            )                    
+             
+        geometry_content_controll.append(currentGeometryData)
+
+    # Define Wave Propagation Origin  ==================================
+
+    sources_content_controll = []
+
+    for content in data['sources']:
+        wavelength = content["waveLength"]
+        width = content["waveWidth"]
+        frequency = content["frequency"]
+        size = content["waveSize"]
+        position = content["position"]
+
+        currentSourceData = mp.Source(
+            mp.ContinuousSource(
+                wavelength=wavelength,
+                width=width,
+                frequency=frequency
+            ),
+            component=mp.Ez,
+            center=mp.Vector3(position[0], position[1]),
+            size=mp.Vector3(size[0], size[1]),
+        )
+        sources_content_controll.append(currentSourceData)
+
+    pml_layers = [mp.PML(1.0)]
+    mp.quiet(True)
+    
+    # Rodar Simulacao =========================
+    sim = mp.Simulation(
+        cell_size=cell,
+        boundary_layers=pml_layers,
+        geometry=geometry_content_controll,
+        sources=sources_content_controll,
+        resolution=data["resolution"],
+        default_material=mp.Medium(epsilon=data["default_material"]),
+    )
+    
+    sim.run(until=int(data["until"]))
+
+    # PLOTA O GRÁFICO SEM A SIMULAÇÃO, APENAS COM O SÓLIDO
+    eps_data = sim.get_array(center=mp.Vector3(), size=cell, component=mp.Dielectric)
+    plt.
+figure()
+    plt.imshow(eps_data.transpose(), interpolation="spline36", cmap="binary")
+    plt.axis("off")
+    # plt.show()
+    plt.title(data["title"])
+    tmpfile = io.BytesIO()
+    plt.savefig(tmpfile, type="png")
+    base64_encoded = str(b64.b64encode(tmpfile.getvalue()))
+    base64_encoded = base64_encoded.replace("b", "", 1)
+    base64_encoded = base64_encoded[1:-1]
+
+    # PLOTA A SIMULAÇÃO COM A EXPANSÃO
+    ez_data = sim.get_array(center=mp.Vector3(), size=cell, component=mp.Ez)
+    plt.figure()
+    plt.imshow(eps_data.transpose(), interpolation="spline36", cmap="binary")
+    plt.imshow(ez_data.transpose(), interpolation="spline36", cmap="RdBu", alpha=0.9)
+    plt.axis("off")
+    # plt.show()
+    plt.title(data["title"])
+    tmpfile = io.BytesIO()
+    plt.savefig(tmpfile, type="png")
+    base64_encoded_wave = str(b64.b64encode(tmpfile.getvalue()))
+    base64_encoded_wave = base64_encoded_wave.replace("b", "", 1)
+    base64_encoded_wave = base64_encoded_wave[1:-1]
+
+    return json.dumps(
+        {
+            "scene": "data:image/png; base64, " + base64_encoded,
+            "wave_scene": "data:image/png; base64, " + base64_encoded_wave,
+        },
+        sort_keys=True,
+        indent=4,
+    )
+

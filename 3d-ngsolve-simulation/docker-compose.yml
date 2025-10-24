@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  ngsolve:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ngsolve
+    ports:
+      - "7000:7000"
+    volumes:
+      - simulations:/app/simulation_data:rw
+    networks:
+      - electrosfi-net
+
+volumes:
+  simulations:
+    external: true
+
+networks:
+  electrosfi-net:
+    external: true

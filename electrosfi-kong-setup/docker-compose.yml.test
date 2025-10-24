@@ -1,0 +1,61 @@
+version: '3.7'
+
+networks:
+  kong-net:
+    external: true
+
+services:
+  gmsh:
+    extends:
+      file: ./services/gmsh-integration/docker-compose.yml
+      service: gmsh
+    networks: 
+      - "kong-net"
+  
+  nlopt:
+    extends:
+    cextends:
+      file: ./services/nlopt_integration/docker-compose.yml
+      service: nlopt
+    networks: 
+      - "kong-net"
+
+  # electrosfi
+  electrosfi:
+    extends:
+      file: ./services/electrosfi-base/electrosfi-master/docker-compose.yml
+      service: web
+    networks: 
+      - "kong-net"
+
+  #electrosfi backend
+  mongodb:
+    extends:
+      file: ./services/electrosfi-base/electrosfi-backend-master/docker-compose.yml
+      service: mongo
+    networks:
+      - "kong-net"
+
+  mongo-express:
+    extends:
+      file: ./services/electrosfi-base/electrosfi-backend-master/docker-compose.yml
+      service: mongo-express
+    networks:
+      - "kong-net"
+
+  electrosfi-backend:
+    extends:
+      file: ./services/electrosfi-base/electrosfi-backend-master/docker-compose.yml
+      service: api
+    networks:
+      - "kong-net"
+    ports:
+      - "5002:5002"
+
+  #python meep
+  meep-simulator:
+    extends:
+      file: ./services/electrosfi-base/pythonMeep-master/docker-compose.yml
+      service: simulator
+    networks:
+      - "kong-net"

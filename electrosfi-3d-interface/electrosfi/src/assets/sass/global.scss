@@ -1,0 +1,121 @@
+:root {
+  $primary-color: var(--v-primary-base);
+  // $primary-color: #3eb772;
+  $text-color: #effaf4;
+  $white: #ffffff;
+  $dark-text-color: #c6c6c6;
+  $accent-color: #2edf7a;
+  $secundary-color: #44c97d;
+  --primary-color-text: #363636;
+  --primary-color: var(--v-primary-base);
+  --text-color: #effaf4;
+  --white: #ffffff;
+  --dark-text-color: #c6c6c6;
+  --accent-color: #2edf7a;
+  --secundary-color: #44c97d;
+  --accent-color-2: #28f07e;
+
+  --background-white: #f9f9f9;
+  --background-dark: #363636;
+  --color-text: white;
+
+  --black-color-borders: #545454;
+
+  --background-simulator: #828282;
+  --background-inputs: #565656;
+
+  --border-input-color: #8e8e8e;
+
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  }
+
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    user-select: none;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1rem;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+}
+
+body,
+input,
+textarea,
+html,
+label,
+.v-label,
+.text-h5,
+.text-subtitle,
+.text-subtitle-2,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+input,
+textarea,
+label,
+.v-label,
+.text-h5,
+.text-subtitle,
+.text-subtitle-2 {}
+
+body {
+  // @import '@sweetalert2/themes/dark/dark.scss';
+  @import '@sweetalert2/themes/material-ui/material-ui.scss';
+
+  .swal2-popup {
+    background: var(--v-background-base);
+
+    .swal2-title,
+    .swal2-html-container {
+      color: var(--v-theme-text-color-base);
+    }
+  }
+
+  .container {
+    max-width: 900px;
+  }
+
+  .cardSimulation {
+    box-shadow: 0 5px 20px -4px #00000052 !important;
+    transition: box-shadow 0.25s ease, filter 0.25s ease;
+
+    &:hover {
+      box-shadow: 0 3px 20px -6px #00000052 !important;
+      filter: brightness(0.95);
+    }
+  }
+}

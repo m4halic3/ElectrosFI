@@ -1,0 +1,66 @@
+.simulator-container {
+    height: 100%;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-simulator);
+
+    .handOn {
+        cursor: grab;
+
+        &:active {
+            cursor: grabbing;
+        }
+    }
+
+    .zoom.In {
+        cursor: zoom-in;
+    }
+
+    .zoom.Out {
+        cursor: zoom-out;
+    }
+    .multipane {
+        .multipane-content {
+            min-width: 12%;
+            max-width: 20%;
+            box-shadow: #00000080 0 0px 5px 0px;
+            &.center {
+                box-shadow: none !important;
+                height: 100%;
+            }
+            &.right {
+                position: fixed;
+                right: 0;
+                height: 100vh;
+                width: 20%;
+                min-width: 20%;
+                max-width: 20%;
+            }
+        }
+
+        .multipane-resizer {
+            margin: 0 !important;
+            margin-left: 0 !important;
+            top: 0;
+            width: 3px;
+            left: -3px;
+            height: 100vh;
+            background: var(--primary-color);
+            z-index: 4;
+            transition: transform 0.25s ease;
+
+            &:hover {
+                transform: scaleX(5);
+            }
+
+            .right {
+                left: 0;
+                right: -8px !important;
+            }
+        }
+    }
+}

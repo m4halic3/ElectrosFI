@@ -1,0 +1,4 @@
+services/electrosfi-base/
+services/nlopt_integration/
+services/gmsh-integration/
+*.env

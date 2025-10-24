@@ -1,0 +1,20 @@
+version: "3.7"  # optional since v1.27.0
+services:
+  meep-simulator:
+    image: meep-simulator:latest
+    container_name: meep-simulator
+    build: .
+    networks:
+      - kong-net
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    # volumes:
+    #   - "./util:/util"
+    #   - "./routes/index.js:/routes/index.js"
+    #   - "./storage/users:/storage/users:rw"
+
+networks:
+  kong-net:
+    external: true

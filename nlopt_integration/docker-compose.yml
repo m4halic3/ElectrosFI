@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  nlopt:
+    container_name: nlopt
+    image: nlopt:latest
+    build: .
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - "PORT=5000"
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 5000

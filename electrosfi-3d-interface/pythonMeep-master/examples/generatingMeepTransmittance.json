@@ -1,0 +1,173 @@
+{
+	"title": "Untitled Simulation",
+	"author": "1",
+	"description": "Untitled simulation description",
+	"simulation": "1",
+	"resolution": 10,
+	"default_material": 1,
+	"flux": [
+		{
+			"type": "transmittance_spectrum",
+			"fcen": 0.15,
+			"df": 0.1,
+			"nfreq": 100,
+			"run_norm": 200,
+			"normalization_geometry":{
+					"position":[0, -11.5],
+					"size":[1e+20,1,1e+20],
+					"epsilon":12
+			},
+			"transmittance_flux": {
+				"center": {
+					"x": 7,
+					"y": -11.5,
+					"z": 0
+				},
+				"size": {
+					"x": 0,
+					"y": 2,
+					"z": 0
+				},
+				"reflected_flux": {
+					"center": {
+						"x": -6.5,
+						"y": -11.5,
+						"z": 0
+					},
+					"size": {
+						"x": 0,
+						"y": 2,
+						"z": 0
+					}
+				}
+			}
+		}
+	],
+	"plotOptions": {
+		"generateDielectric": 0,
+		"generateAxis": 0,
+		"generateVideo": 0,
+		"until": 400,
+		"plotAxis": "Ez",
+		"realtime": 0,
+		"field_parameters": {
+			"interpolation": "spline36",
+			"alpha": 0.6,
+			"cmap": "RdBu"
+		},
+		"monitor_parameters": {
+			"alpha": 1.0,
+			"color": "g",
+			"facecolor": "none",
+			"edgecolor": "r",
+			"linewidth": "1",
+			"hatch": "",
+			"label_color": "g",
+			"label_alpha": "0.3",
+			"offset": "20"
+		},
+		"source_parameters": {
+			"color": "r",
+			"alpha": 1.0,
+			"facecolor": "none",
+			"edgecolor": "r",
+			"linewidth": "1",
+			"hatch": "",
+			"label_color": "r",
+			"label_alpha": "0.3",
+			"offset": "20"
+		},
+		"plotViews": {
+			"eps_flag": 0,
+			"sources_flag": 0,
+			"monitor_flag": 0,
+			"boundaries_flag": 0
+		},
+		"boundary_parameters": {
+			"alpha": 1.0,
+			"facecolor": "g",
+			"edgecolor": "g",
+			"linewidth": "1",
+			"hatch": ""
+		},
+		"eps_parameters": {
+			"alpha": 1.0,
+			"interpolation": "spline36",
+			"cmap": "binary"
+		},
+		"labels": 1
+	},
+	"generateVideo": 0,
+	"pml": {
+		"thickness": 1
+	},
+	"geometries": [
+		{
+			"position": [
+				-2.0,
+				-11.5
+			],
+			"size": [
+				12,
+				1,
+				1e+20
+			],
+			"epsilon": 12,
+			"shape": "block"
+		},
+		{
+			"position": [
+				3.5,
+				2.0
+			],
+			"size": [
+				1,
+				28,
+				1e+20
+			],
+			"epsilon": 12,
+			"shape": "block"
+		}
+	],
+	"sources": [
+		{
+			"width": 5,
+			"height": 5,
+			"radius": 10,
+			"token": "34c84ae367627b88b755f69589a9b2ea",
+			"frequency": 0.15,
+			"waveLength": 0,
+			"integrated": 1,
+			"waveWidth": 0,
+			"fwidth":0.1,
+			"component": "Ez",
+			"sourceType": "gaussian",
+			"waveSize": [
+				0,
+				1,
+				0
+			],
+			"name": "Source 1",
+			"fill": "#FF0000",
+			"class": "source",
+			"shape": "sphere",
+			"x": 297.3,
+			"y": 171,
+			"posX": 344.296875,
+			"posY": 139,
+			"position": [
+				-7.0,
+				-11.5
+			],
+			"size": [
+				0.15,
+				0.15
+			]
+		}
+	],
+	"coordinates": {
+		"x": 16,
+		"y": 32,
+		"z": 0
+	}
+}

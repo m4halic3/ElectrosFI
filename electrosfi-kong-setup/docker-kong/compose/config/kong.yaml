@@ -1,0 +1,122 @@
+# a very minimal declarative config file
+_format_version: "2.1"
+_transform: true
+
+services:
+- host: gmsh
+  name: gmsh
+  port: 6000
+  protocol: http
+  path: /
+  routes:
+  - name: gmsh
+    paths:
+    - /gmsh
+    strip_path: true
+    methods:
+    - GET
+    - PUT
+    - POST
+    - PATCH
+    - DELETE
+    - OPTIONS
+    - HEAD
+    - CONNECT
+    - TRACE
+
+- host: nlopt
+  name: nlopt
+  port: 5000
+  protocol: http
+  path: /
+  routes:
+  - name: nlopt
+    paths:
+    - /nlopt
+    strip_path: true
+    methods:
+    - GET
+    - PUT
+    - POST
+    - PATCH
+    - DELETE
+    - OPTIONS
+    - HEAD
+    - CONNECT
+    - TRACE   
+
+- host: meep-simulator
+  name: meep-simulator
+  port: 3000
+  protocol: http
+  path: /
+  routes:
+  - name: meep
+    paths:
+    - /meep
+    strip_path: true
+    methods:
+    - GET
+    - PUT
+    - POST
+    - PATCH
+    - DELETE
+    - OPTIONS
+    - HEAD
+    - CONNECT
+    - TRACE
+
+- host: electrosfi-backend
+  name: electrosfi-backend
+  port: 5002
+  protocol: http
+  path: /
+  routes:
+  - name: electrosfi-backend
+    paths:
+    - /electrosfi-backend
+    strip_path: true
+    methods:
+    - GET
+    - PUT
+    - POST
+    - PATCH
+    - DELETE
+    - OPTIONS
+    - HEAD
+    - CONNECT
+    - TRACE
+
+plugins:
+- tags: null
+  config:
+    preflight_continue: false
+    methods:
+      - GET
+      - HEAD
+      - PUT
+      - PATCH
+      - POST
+      - DELETE
+      - OPTIONS
+      - TRACE
+      - CONNECT
+    max_age: null
+    private_network: false
+    headers: null
+    exposed_headers: null
+    credentials: false
+    origins:
+      - '*'
+  protocols:
+    - grpc
+    - grpcs
+    - http
+    - https
+  route: null
+  enabled: true
+  id: ad0f7dcd-c0f0-4f48-a1c3-d845aac864c0
+  instance_name: cors
+  name: cors
+  service: null
+  consumer: null
